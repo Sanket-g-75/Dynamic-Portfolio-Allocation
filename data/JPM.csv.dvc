@@ -1,0 +1,5 @@
+outs:
+- md5: dd80114a9fae8a980154e3f737315027
+  size: 253580
+  hash: md5
+  path: JPM.csv

@@ -1,0 +1,5 @@
+outs:
+- md5: 2c0232db3670afddd3760e5fc6eb4a86
+  size: 257579
+  hash: md5
+  path: DAX.csv

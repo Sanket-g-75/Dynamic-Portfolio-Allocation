@@ -1,0 +1,5 @@
+outs:
+- md5: 44e237454ffea0d912f0b21ec0f2715a
+  size: 220336
+  hash: md5
+  path: FTSE.csv

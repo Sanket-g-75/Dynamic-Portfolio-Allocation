@@ -1,0 +1,5 @@
+outs:
+- md5: b36bab3eeec6d67dc7a4977913548054
+  size: 233700
+  hash: md5
+  path: FCHI.csv

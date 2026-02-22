@@ -1,0 +1,5 @@
+outs:
+- md5: 95f4e8d1335e166f5aaa7fb82e338a8e
+  size: 250233
+  hash: md5
+  path: EURUSD.csv

@@ -1,0 +1,5 @@
+outs:
+- md5: b4909e557cebb32d323c918653102cef
+  size: 206769
+  hash: md5
+  path: NSEI.csv

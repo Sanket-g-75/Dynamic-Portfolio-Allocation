@@ -1,0 +1,5 @@
+outs:
+- md5: b8d8640e9eddcb22f68e93071eae3951
+  size: 251409
+  hash: md5
+  path: AUDUSD.csv

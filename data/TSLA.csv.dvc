@@ -1,0 +1,5 @@
+outs:
+- md5: 39f9e509bd03f95c38c986f8f2881a4d
+  size: 251907
+  hash: md5
+  path: TSLA.csv

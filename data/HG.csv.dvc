@@ -1,0 +1,5 @@
+outs:
+- md5: 6a60483dd14218500c142b75c737e44d
+  size: 242024
+  hash: md5
+  path: HG.csv

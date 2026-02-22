@@ -1,0 +1,5 @@
+outs:
+- md5: bb98aa2562b213e0fce1dffe665c6d39
+  size: 250266
+  hash: md5
+  path: CHFUSD.csv

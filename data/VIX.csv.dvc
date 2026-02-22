@@ -1,0 +1,5 @@
+outs:
+- md5: dfcaa92858376906bd1804777eee06eb
+  size: 235380
+  hash: md5
+  path: VIX.csv
