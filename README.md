@@ -1,0 +1,2 @@
+- The idea is to create a Dynamic Portfolio Allocation that can use data related to indexes, commodities, vix, to adjust portfolio allocation in a set of stocks to maximize the reward 
+- Will use YAHOO Finance to download the data of all the scripts.
