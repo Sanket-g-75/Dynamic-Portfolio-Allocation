@@ -1,5 +1,0 @@
-stocks = ['NVDA','TSLA','RTX','GOOG','XOM','JPM','UNH']
-w_indices = ['GSPC','SS','N225','DAX','NSEI','FTSE','FCHI']
-forex = ['EURUSD','JPYUSD','GBPUSD','CHFUSD','AUDUSD']
-commodities = ['GC','SI','CL','HG']
-other = ['VIX']
