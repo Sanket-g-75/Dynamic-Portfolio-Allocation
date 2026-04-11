@@ -1,1 +1,7 @@
-torch
+yfinance
+numpy
+pandas
+datetime
+sklearn 
+tensorflow
+argparse
