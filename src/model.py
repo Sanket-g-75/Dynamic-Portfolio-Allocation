@@ -5,11 +5,12 @@ import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input,LSTM, Dense, Dropout, Conv1D
 from tensorflow.keras.optimizers import Adam
+from src.pfutils import generate_weekly_allocations,  allocation_change_signals, build_daily_weights
+from src.pfutils import compute_portfolio_returns
 
 
 
-
-def model(lookback, num_features, num_stocks):
+def build_model(lookback, num_features, num_stocks):
     inp = Input(shape=(lookback, num_features)) # Samples, features
 
     # CNN part: local temporal patterns in macro/FX/commodity/VIX features
@@ -71,13 +72,13 @@ def walk_forward_backtest(
         dates_te = seq_dates[end_train:end_test]
 
         # Build & train model
-        model = build_cnn_lstm_model(
+        keras_model = build_model(
             lookback=X_seq.shape[1],
             num_features=X_seq.shape[2],
             num_stocks=y_seq.shape[1]
         )
 
-        model.fit(
+        keras_model.fit(
             X_tr, y_tr,
             epochs=epochs_per_step,
             batch_size=batch_size,
@@ -87,7 +88,7 @@ def walk_forward_backtest(
         # Generate allocations on the test slice
         X_te = X_seq[end_train:end_test]
         alloc_df = generate_weekly_allocations(
-            model,
+            keras_model,
             X_te,
             dates_te,        # IMPORTANT: use dates of that slice
             tickers=tickers,
