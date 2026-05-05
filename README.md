@@ -12,7 +12,7 @@ other = ['VIX']
 - Data Versioning > DVC
 - Orchestration > Apache Airflow
 - Data Processing > Python, (Pydantic for Data Validation)
-- Experiment Tracking > WandB
+- Experiment Tracking > MLflow
 - Model Serving > FastAPI + Docker
 - CI/CD > Github Actions
 - Observability > Promethus + Grafana

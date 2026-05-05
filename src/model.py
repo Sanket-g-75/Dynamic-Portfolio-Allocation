@@ -58,6 +58,7 @@ def walk_forward_backtest(
     start = train_window
     wf_port_ret_list = []
     wf_allocations = {}
+    keras_model = None
 
     while start < num_samples - test_window:
         end_train = start
@@ -138,4 +139,4 @@ def walk_forward_backtest(
     wf_port_ret = pd.concat(wf_port_ret_list).sort_index()
     wf_port_curve = (1 + wf_port_ret).cumprod()
 
-    return wf_port_ret, wf_port_curve, wf_allocations
+    return wf_port_ret, wf_port_curve, wf_allocations, keras_model

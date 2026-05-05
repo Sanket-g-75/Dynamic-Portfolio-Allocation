@@ -25,10 +25,16 @@ def combine_data(features): # Finds data from the processed folder and then comb
     
             df = pd.concat([df,right],join='inner',axis=1)
 
-    name = f'{datetime.date.today()}-Dataset.csv'
+    name = 'Dataset.csv'
     df.to_csv(os.path.join(path,'data','final',name))
 
 def scaling(data):
     scaler = StandardScaler()
     data_scaled = scaler.fit_transform(data)
     return data_scaled
+
+if __name__ == '__main__':
+    import data.metadata as d
+    print("Starting data preprocessing...")
+    combine_data(d.features)
+    print("Data preprocessing complete.")

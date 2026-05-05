@@ -1,0 +1,20 @@
+artifact_path: file:D:/1.Work/WorkStation/WorkSpace/Projects/Dynamic-Portfolio-Allocation/mlruns/0/models/m-d29cf04125e64ecfb88563eef0a30e62/artifacts
+flavors:
+  keras:
+    data: data
+    keras_backend: tensorflow
+    keras_version: 3.9.2
+    save_exported_model: false
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.keras
+    python_version: 3.12.7
+mlflow_version: 3.9.0
+model_id: m-d29cf04125e64ecfb88563eef0a30e62
+model_size_bytes: 718844
+model_uuid: m-d29cf04125e64ecfb88563eef0a30e62
+prompts: null
+run_id: d6f7ab3d3c2743a1a1f47f1be66af4d2
+utc_time_created: '2026-05-04 15:26:14.196926'

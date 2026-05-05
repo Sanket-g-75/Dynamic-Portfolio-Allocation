@@ -37,4 +37,14 @@ def update_ticker(ticker,path):
 
 
 def update_data():
-    pass
+    print("Starting data ingestion process...")
+    for ticker in d.features:
+        try:
+            print(f"Updating data for {ticker}...")
+            update_ticker(ticker, path)
+        except Exception as e:
+            print(f"Failed to update {ticker}: {e}")
+    print("Data ingestion complete.")
+
+if __name__ == "__main__":
+    update_data()
