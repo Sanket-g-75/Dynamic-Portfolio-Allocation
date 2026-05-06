@@ -3,47 +3,54 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 
+import warnings
+warnings.filterwarnings('ignore')
+
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
 import mlflow
 import mlflow.keras
 
 from src.model import walk_forward_backtest
-from src.pfutils import compare_with_equal_weight
+from src.pfutils import compare_with_equal_weight, create_sequences
 from src.preprocess import scaling
 
-def create_sequences(X, y, dates, lookback):
-    """
-    Generate sequences of shape (samples, lookback, features) for the CNN-LSTM.
-    """
-    X_seq, y_seq, seq_dates = [], [], []
-    for i in range(len(X) - lookback):
-        X_seq.append(X[i:i+lookback])
-        y_seq.append(y[i+lookback])
-        seq_dates.append(dates[i+lookback])
-    return np.array(X_seq), np.array(y_seq), np.array(seq_dates)
+
 
 mlflow.set_experiment("e2e-mlops-project")
 
 def main():
     print("Loading dataset...")
     # Using relative path based on the root directory
-    data_path = os.path.join('data', 'final', 'Dataset.csv')
-    df = pd.read_csv(data_path, index_col=0, parse_dates=True)
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    dataset_path = os.path.join(BASE_DIR, 'data', 'final', 'Dataset.csv')
+    stocks_path = os.path.join(BASE_DIR, 'data', 'final', 'Stocks.csv')
+    
+    X_df = pd.read_csv(dataset_path, index_col=0, parse_dates=True)
+    Y_df = pd.read_csv(stocks_path, index_col=0, parse_dates=True)
     
     # Forward fill to handle any missing prices, then drop rows that are still NaN
-    df.fillna(method='ffill', inplace=True)
-    df.dropna(inplace=True)
+    X_df.ffill(inplace=True)
+    X_df.dropna(inplace=True)
+    Y_df.ffill(inplace=True)
+    Y_df.dropna(inplace=True)
+    
+    # Align both dataframes to the same index
+    common_index = X_df.index.intersection(Y_df.index)
+    X_df = X_df.loc[common_index]
+    Y_df = Y_df.loc[common_index]
     
     # Identify tradeable tickers (closing prices). Exclude VIX from the tradeable universe.
-    tickers = [c for c in df.columns if c.endswith('-Close') and 'VIX' not in c]
-    Y_close = df[tickers]
+    tickers = [c for c in Y_df.columns if c.endswith('-Close') and 'VIX' not in c]
+    Y_close = Y_df[tickers]
     
     # Calculate future returns (e.g., 5-day forward return) as the target for the model
     print("Preparing targets and features...")
     y = Y_close.pct_change(5).shift(-5)
     
     # Scale features using the utility from preprocess
-    X_data = scaling(df.values)
-    X_df = pd.DataFrame(X_data, index=df.index, columns=df.columns)
+    X_data = scaling(X_df.values)
+    X_df = pd.DataFrame(X_data, index=X_df.index, columns=X_df.columns)
     
     # Align X and y by dropping the last few rows with NaN targets
     valid_idx = y.dropna().index
@@ -72,7 +79,8 @@ def main():
     # Start MLflow run
     with mlflow.start_run() as run:
         mlflow.log_params(params)
-        mlflow.log_artifact(data_path, artifact_path="data")
+        # mlflow.log_artifact(dataset_path, artifact_path="data")
+        # mlflow.log_artifact(stocks_path, artifact_path="data")
         run_id = run.info.run_id
         print("Run ID:", run_id)
         # Train the model using the walk-forward backtest pipeline from model.py

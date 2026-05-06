@@ -1,7 +1,11 @@
-yfinance
-numpy
+fastapi
+uvicorn
+mlflow
+tensorflow==2.9.1
 pandas
-datetime
-sklearn 
-tensorflow
-argparse
+scikit-learn
+yfinance==0.2.18
+numpy==1.23.5
+protobuf<4
+prometheus_client
+psutil

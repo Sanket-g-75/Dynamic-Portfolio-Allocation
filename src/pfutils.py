@@ -74,7 +74,7 @@ def compute_portfolio_returns(
     daily_ret = Y_close[tickers].pct_change().fillna(0)
 
     # Align
-    daily_weights = daily_weights.reindex(daily_ret.index).fillna(method='ffill')
+    daily_weights = daily_weights.reindex(daily_ret.index).ffill()
 
     # Gross portfolio returns
     gross_ret = (daily_weights * daily_ret).sum(axis=1)
@@ -92,6 +92,16 @@ def compute_portfolio_returns(
 
     return net_ret, port_curve
 
+def create_sequences(X, y, dates, lookback):
+    """
+    Generate sequences of shape (samples, lookback, features) for the CNN-LSTM.
+    """
+    X_seq, y_seq, seq_dates = [], [], []
+    for i in range(len(X) - lookback):
+        X_seq.append(X[i:i+lookback])
+        y_seq.append(y[i+lookback])
+        seq_dates.append(dates[i+lookback])
+    return np.array(X_seq), np.array(y_seq), np.array(seq_dates)
 
 # Builds Daily Weights for the stocks for allocation
 def build_daily_weights(
