@@ -2,25 +2,28 @@ import mlflow
 import mlflow.keras
 from mlflow.tracking import MlflowClient
 
+import os
+
+import glob
+
 def load_model():
-    client = MlflowClient()
-    experiment_name = "e2e-mlops-project"
+    # Detect if we are running inside Docker
+    in_docker = os.path.exists("/app/mlruns")
     
-    experiment = client.get_experiment_by_name(experiment_name)
-    if not experiment:
-        raise ValueError(f"Experiment '{experiment_name}' not found. Please train the model first.")
-
-    runs = client.search_runs(
-        experiment_ids=[experiment.experiment_id],
-        order_by=["start_time DESC"],
-        max_results=1
-    )
-
-    if not runs:
-        raise ValueError(f"No runs found for experiment '{experiment_name}'")
-
-    latest_run_id = runs[0].info.run_id
-    model_uri = f"runs:/{latest_run_id}/final_model"
+    # Base directory to search for models
+    base_dir = "/app/mlruns" if in_docker else "mlruns"
     
-    print(f"Loading latest model dynamically from run ID: {latest_run_id}")
-    return mlflow.keras.load_model(model_uri)
+    if not os.path.exists(base_dir):
+        raise ValueError(f"Directory {base_dir} does not exist. Please train the model first.")
+        
+    # Find all MLmodel files
+    mlmodels = glob.glob(f"{base_dir}/**/MLmodel", recursive=True)
+    if not mlmodels:
+        raise ValueError(f"No MLmodel found in {base_dir}. Please train the model first.")
+        
+    # Get the latest one by modification time
+    latest_mlmodel = max(mlmodels, key=os.path.getmtime)
+    model_dir = os.path.dirname(latest_mlmodel)
+    
+    print(f"Loading latest model dynamically from: {model_dir}")
+    return mlflow.keras.load_model(model_dir)

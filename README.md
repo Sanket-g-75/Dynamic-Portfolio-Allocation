@@ -1,17 +1,11 @@
 - The idea is to create a Dynamic Portfolio Allocation that can use data related to indexes, commodities, vix, to adjust portfolio allocation in a set of stocks to maximize the reward 
 - Will use YAHOO Finance to download the data of all the scripts.
 
-stocks = ['NVDA','TSLA','RTX','GOOG','XOM','JPM','UNH']
-w_indices = ['GSPC','SS','N225','DAX','NSEI','FTSE','FCHI']
-forex = ['EURUSD','JPYUSD','GBPUSD','CHFUSD','AUDUSD']
-commodities = ['GC','SI','CL','HG']
-other = ['VIX']
-
 
 - Infrastructure and Versioning > Github
 - Data Versioning > DVC
 - Orchestration > Apache Airflow
-- Data Processing > Python, (Pydantic for Data Validation)
+- Data Processing > Python
 - Experiment Tracking > MLflow
 - Model Serving > FastAPI + Docker
 - CI/CD > Github Actions
@@ -31,3 +25,10 @@ other = ['VIX']
     * Give portfolio changes based on 3 day time interval
     * Give portfolio metrics EOD daily
     * Get the last data of data till the model is trained
+
+
+# Rebuilding the Project for Personal Use
+* Will use Kite API/ Fyers API to get the stock market data. Will as of now use Yahoo Finance
+* I will have to heavily work on the model because I think there is a lot of room for improvement in this
+* In the process will learn everything related to MLOps
+

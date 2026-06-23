@@ -11,3 +11,5 @@ results/
 
 .env
 .ipynb_checkpoints/
+
+/dpa-venv

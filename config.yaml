@@ -1,0 +1,177 @@
+features:
+  commodities:
+  - GC=F
+  - SI=F
+  - CL=F
+  - HG=F
+  forex:
+  - EURUSD=X
+  - JPYUSD=X
+  - GBPUSD=X
+  - CHFUSD=X
+  - AUDUSD=X
+  - INRUSD=X
+  other:
+  - ^VIX
+  - ^INDIAVIX
+  w_indices:
+  - ^GSPC
+  - 000001.SS
+  - ^N225
+  - ^GDAXI
+  - ^NSEI
+  - ^FTSE
+  - ^FCHI
+metadata:
+  data_present_till: '2026-06-23 00:00:00'
+stocks:
+- - ADANIENT.NS
+  - NIFTY METAL
+  - Metals & Mining
+- - ADANIPORTS.NS
+  - NIFTY INFRASTRUCTURE
+  - Services
+- - APOLLOHOSP.NS
+  - NIFTY HEALTHCARE
+  - Healthcare
+- - ASIANPAINT.NS
+  - NIFTY CONSUMPTION
+  - Consumer Durables
+- - AXISBANK.NS
+  - NIFTY FINANCIAL SERVICES
+  - Financial Services
+- - BAJAJ-AUTO.NS
+  - NIFTY AUTO
+  - Automobile & Auto Components
+- - BAJFINANCE.NS
+  - NIFTY FINANCIAL SERVICES
+  - Financial Services
+- - BAJAJFINSV.NS
+  - NIFTY FINANCIAL SERVICES
+  - Financial Services
+- - BEL.NS
+  - NIFTY INDIA DEFENCE
+  - Capital Goods
+- - BHARTIARTL.NS
+  - NIFTY TELECOM
+  - Telecommunication
+- - CIPLA.NS
+  - NIFTY PHARMA
+  - Healthcare
+- - COALINDIA.NS
+  - NIFTY ENERGY
+  - Oil Gas & Consumable Fuels
+- - DRREDDY.NS
+  - NIFTY PHARMA
+  - Healthcare
+- - EICHERMOT.NS
+  - NIFTY AUTO
+  - Automobile & Auto Components
+- - ETERNAL.NS
+  - NIFTY CONSUMPTION
+  - Consumer Services
+- - GRASIM.NS
+  - NIFTY COMMODITIES
+  - Construction Materials
+- - HCLTECH.NS
+  - NIFTY IT
+  - Information Technology
+- - HDFCBANK.NS
+  - NIFTY BANK
+  - Financial Services
+- - HDFCLIFE.NS
+  - NIFTY FINANCIAL SERVICES
+  - Financial Services
+- - HEROMOTOCO.NS
+  - NIFTY AUTO
+  - Automobile & Auto Components
+- - HINDALCO.NS
+  - NIFTY METAL
+  - Metals & Mining
+- - HINDUNILVR.NS
+  - NIFTY FMCG
+  - Fast Moving Consumer Goods
+- - ICICIBANK.NS
+  - NIFTY BANK
+  - Financial Services
+- - INDUSINDBK.NS
+  - NIFTY BANK
+  - Financial Services
+- - INFY.NS
+  - NIFTY IT
+  - Information Technology
+- - ITC.NS
+  - NIFTY FMCG
+  - Fast Moving Consumer Goods
+- - JIOFIN.NS
+  - NIFTY FINANCIAL SERVICES
+  - Financial Services
+- - JSWSTEEL.NS
+  - NIFTY METAL
+  - Metals & Mining
+- - KOTAKBANK.NS
+  - NIFTY BANK
+  - Financial Services
+- - LT.NS
+  - NIFTY INFRASTRUCTURE
+  - Construction
+- - M&M.NS
+  - NIFTY AUTO
+  - Automobile & Auto Components
+- - MARUTI.NS
+  - NIFTY AUTO
+  - Automobile & Auto Components
+- - NESTLEIND.NS
+  - NIFTY FMCG
+  - Fast Moving Consumer Goods
+- - NTPC.NS
+  - NIFTY ENERGY
+  - Power
+- - ONGC.NS
+  - NIFTY ENERGY
+  - Oil Gas & Consumable Fuels
+- - POWERGRID.NS
+  - NIFTY ENERGY
+  - Power
+- - RELIANCE.NS
+  - NIFTY ENERGY
+  - Oil Gas & Consumable Fuels
+- - SBILIFE.NS
+  - NIFTY FINANCIAL SERVICES
+  - Financial Services
+- - SBIN.NS
+  - NIFTY BANK
+  - Financial Services
+- - SHRIRAMFIN.NS
+  - NIFTY FINANCIAL SERVICES
+  - Financial Services
+- - SUNPHARMA.NS
+  - NIFTY PHARMA
+  - Healthcare
+- - TATACONSUM.NS
+  - NIFTY FMCG
+  - Fast Moving Consumer Goods
+- - TMCV.NS
+  - NIFTY AUTO
+  - Automobile & Auto Components
+- - TATASTEEL.NS
+  - NIFTY METAL
+  - Metals & Mining
+- - TCS.NS
+  - NIFTY IT
+  - Information Technology
+- - TECHM.NS
+  - NIFTY IT
+  - Information Technology
+- - TITAN.NS
+  - NIFTY CONSUMPTION
+  - Consumer Durables
+- - TRENT.NS
+  - NIFTY CONSUMPTION
+  - Consumer Services
+- - ULTRACEMCO.NS
+  - NIFTY COMMODITIES
+  - Construction Materials
+- - WIPRO.NS
+  - NIFTY IT
+  - Information Technology

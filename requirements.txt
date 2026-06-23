@@ -1,11 +1,14 @@
+jupyter
+ipykernel
+
 fastapi
 uvicorn
 mlflow
-tensorflow==2.9.1
+torch
 pandas
 scikit-learn
-yfinance==0.2.18
-numpy==1.23.5
+yfinance
+numpy
 protobuf<4
 prometheus_client
 psutil
