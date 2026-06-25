@@ -23,7 +23,8 @@ features:
   - ^FTSE
   - ^FCHI
 metadata:
-  data_present_till: '2026-06-23 00:00:00'
+  data_present_till: '2026-06-24 00:00:00'
+  returns_duration: 7
 stocks:
 - - ADANIENT.NS
   - NIFTY METAL

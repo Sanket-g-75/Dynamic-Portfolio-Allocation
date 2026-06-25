@@ -26,7 +26,7 @@ features = config['features']['w_indices'] + config['features']['commodities'] +
 
 # Downloading the data
 for i in (stocks + features):
-    data = yf.Ticker(i).history(period='10y').rename(
+    data = yf.Ticker(i).history(period='max').rename(
         columns={"Open": f'{i}_Open',
                 'High':f'{i}_High',
                 "Low":f'{i}_Low',
