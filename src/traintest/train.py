@@ -33,6 +33,7 @@ dataset.set_index('Date',inplace=True)
 stocks.set_index('Date',inplace=True)
 
 stocks = stocks[['TATASTEEL.NS_7DReturn','SUNPHARMA.NS_7DReturn','RELIANCE.NS_7DReturn','INFY.NS_7DReturn','TATACONSUM.NS_7DReturn']]
+stocks['Cash'] = -0.01
 
 train_len = int(np.floor(0.7*len(dataset)))
 val_len = len(dataset) - train_len

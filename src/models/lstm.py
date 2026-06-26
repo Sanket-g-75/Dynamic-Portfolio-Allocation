@@ -17,7 +17,7 @@ class lstm_model(nn.Module):
         )
         self.phead = nn.Linear(                     # This is the prediction head
             in_features=35,
-            out_features=5
+            out_features=6
         )
     
     def forward(self,x):
