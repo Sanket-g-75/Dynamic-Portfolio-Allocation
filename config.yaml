@@ -24,7 +24,11 @@ features:
   - ^FCHI
 metadata:
   data_present_till: '2026-06-24 00:00:00'
-  returns_duration: 7
+  train_params:
+    lookback_period: 7
+    batch_size: 24
+    epochs: 35
+    lr: 1e-3
 stocks:
 - - ADANIENT.NS
   - NIFTY METAL

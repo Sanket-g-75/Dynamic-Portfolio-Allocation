@@ -1,13 +1,6 @@
-import os
-import yaml
 
 import torch
 import torch.nn as nn
-
-from dotenv import load_dotenv
-load_dotenv()
-
-path = os.environ['PROJECT_FOLDER']
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

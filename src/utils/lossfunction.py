@@ -1,4 +1,4 @@
-def loss_function(weights,returns):
+def SharpeLoss(weights,returns):
     portfolio_returns = (weights * returns).sum(dim=1)
 
     mean_return = portfolio_returns.mean()

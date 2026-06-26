@@ -13,3 +13,7 @@ results/
 .ipynb_checkpoints/
 
 /dpa-venv
+
+Metrics.csv
+mlflow.db
+model.pth
