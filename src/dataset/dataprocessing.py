@@ -38,6 +38,7 @@ for i in instruments:
     data[f'{i}_Theta'] = np.arctan(data[f'{i}_OC']/data[f'{i}_HL'])
     data[f'{i}_Theta'] = data[f'{i}_Theta'].apply(lambda x: ((x * 180) / math.pi)) 
     data.fillna(0,inplace=True) 
+    
 
     
 
@@ -56,7 +57,8 @@ for i in instruments:
     # Adding 7D return
     if i in stocks:
         data[f'{i}_7DReturn'] = (100*(data[f'{i}_Close'].shift(-7) - data[f'{i}_Close'])/data[f'{i}_Close'])
-        data[f'{i}_7DReturn'] = data[f'{i}_7DReturn'].fillna(0)
+        # data[f'{i}_7DReturn'] = data[f'{i}_7DReturn'].fillna(0)   > Instead of doing this, will remove the last lookback window
+        data.dropna(axis=0,inplace=True)
 
     data.drop(columns=[f'{i}_Open',f'{i}_High',f'{i}_Low',f'{i}_Close'],inplace=True)
 

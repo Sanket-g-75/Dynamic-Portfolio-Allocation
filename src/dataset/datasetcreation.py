@@ -55,5 +55,6 @@ for i in ["TATASTEEL.NS", "SUNPHARMA.NS", "RELIANCE.NS", "INFY.NS", "TATACONSUM.
 dataset = pd.concat(dataframes,axis=1)
 stks = pd.concat(fstocks,axis=1)
 
+
 dataset.to_csv(os.path.join(path,'data','final','Dataset.csv'))
 stks.to_csv(os.path.join(path,'data','final','Stocks.csv'))
